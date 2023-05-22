@@ -4,14 +4,14 @@
  */
 package visual;
 
-import java.awt.Toolkit;
 import javax.swing.*;
-import java.awt.Image;
+import java.awt.*;
+
 /**
  *
  * @author alain
  */
-public class Presentacion extends javax.swing.JFrame {
+public class Presentacion extends javax.swing.JFrame{
 
     /**
      * Creates new form Presentacion
@@ -19,13 +19,13 @@ public class Presentacion extends javax.swing.JFrame {
     public Presentacion() {
         initComponents();
         
-        ImageIcon imageIcon = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pexels-igor-mashkov-6325001.jpg"))); // load the image to a imageIcon
-        Image image = imageIcon.getImage(); // transform it 
+        ImageIcon imageIcon = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/imagenes/pexels-igor-mashkov-6325001.jpg"))); // load the image to a imageIcon
+        Image image = imageIcon.getImage(); 
         Image newimg = image.getScaledInstance(jLabel3.getWidth(), jLabel3.getHeight(), Image.SCALE_SMOOTH); // scale it the smooth way  
-        imageIcon = new ImageIcon(newimg);  // transform it back
-
-        
+        imageIcon = new ImageIcon(newimg);  
         jLabel3.setIcon(imageIcon);
+        
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -45,6 +45,9 @@ public class Presentacion extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/icons8-shooting-stars-48.png")).getImage());
+        setLocation(new java.awt.Point(0, 0));
+        setResizable(false);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -54,6 +57,7 @@ public class Presentacion extends javax.swing.JFrame {
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 400, 120));
 
         jButton1.setText("Menu principal");
+        jButton1.setFocusPainted(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -67,6 +71,7 @@ public class Presentacion extends javax.swing.JFrame {
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 160, -1, 24));
 
         jButton2.setText("Salir");
+        jButton2.setFocusPainted(false);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -74,7 +79,7 @@ public class Presentacion extends javax.swing.JFrame {
         });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 265, 113, -1));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/visual/pexels-igor-mashkov-6325001.jpg"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pexels-igor-mashkov-6325001.jpg"))); // NOI18N
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 410, 320));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
