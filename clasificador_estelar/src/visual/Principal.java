@@ -20,13 +20,14 @@ public class Principal extends javax.swing.JFrame {
     public Principal() {
         initComponents();
         
-        ImageIcon imageIcon = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/imagenes/pexels-felix-mittermeier-956999.jpg"))); // load the image to a imageIcon
+        ImageIcon imageIcon = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/imagenes/pexels-pixabay-2150.jpg"))); // load the image to a imageIcon
         Image image = imageIcon.getImage(); 
         Image newimg = image.getScaledInstance(jLabelFondo.getWidth(), jLabelFondo.getHeight(), Image.SCALE_SMOOTH); // scale it the smooth way  
         imageIcon = new ImageIcon(newimg);  
         jLabelFondo.setIcon(imageIcon);
         
         this.setLocationRelativeTo(null);
+        
     }
 
     /**
@@ -40,6 +41,14 @@ public class Principal extends javax.swing.JFrame {
 
         jPanel2 = new javax.swing.JPanel();
         jLabelFondo = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenuClasificar = new javax.swing.JMenu();
+        jMenuItemIntroducirDatos = new javax.swing.JMenuItem();
+        jMenuItemCargarDatosDesdeArchivo = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuItem = new javax.swing.JMenuItem();
+        jMenu4 = new javax.swing.JMenu();
+        jMenu3 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -48,12 +57,53 @@ public class Principal extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabelFondo, javax.swing.GroupLayout.DEFAULT_SIZE, 701, Short.MAX_VALUE)
+            .addComponent(jLabelFondo, javax.swing.GroupLayout.DEFAULT_SIZE, 576, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabelFondo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 495, Short.MAX_VALUE)
+            .addComponent(jLabelFondo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 437, Short.MAX_VALUE)
         );
+
+        jMenuClasificar.setText("Clasificar");
+        jMenuClasificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuClasificarActionPerformed(evt);
+            }
+        });
+
+        jMenuItemIntroducirDatos.setText("Introducir datos");
+        jMenuItemIntroducirDatos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemIntroducirDatosActionPerformed(evt);
+            }
+        });
+        jMenuClasificar.add(jMenuItemIntroducirDatos);
+
+        jMenuItemCargarDatosDesdeArchivo.setText("Importar desde archivo");
+        jMenuItemCargarDatosDesdeArchivo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemCargarDatosDesdeArchivoActionPerformed(evt);
+            }
+        });
+        jMenuClasificar.add(jMenuItemCargarDatosDesdeArchivo);
+
+        jMenuBar1.add(jMenuClasificar);
+
+        jMenu2.setText("Información");
+
+        jMenuItem.setText("jMenuItem1");
+        jMenu2.add(jMenuItem);
+
+        jMenuBar1.add(jMenu2);
+
+        jMenu4.setText("Ayuda");
+
+        jMenu3.setText("Acerca de");
+        jMenu4.add(jMenu3);
+
+        jMenuBar1.add(jMenu4);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -68,6 +118,21 @@ public class Principal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenuItemCargarDatosDesdeArchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCargarDatosDesdeArchivoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItemCargarDatosDesdeArchivoActionPerformed
+
+    private void jMenuClasificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuClasificarActionPerformed
+
+    }//GEN-LAST:event_jMenuClasificarActionPerformed
+
+    private void jMenuItemIntroducirDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemIntroducirDatosActionPerformed
+        intD=new IntroducirDatos(this, true);
+        intD.setLocationRelativeTo(null);
+        intD.setResizable(false);
+        intD.setVisible(true);
+    }//GEN-LAST:event_jMenuItemIntroducirDatosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -104,8 +169,17 @@ public class Principal extends javax.swing.JFrame {
         });
     }
 
+    private IntroducirDatos intD;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabelFondo;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenu jMenuClasificar;
+    private javax.swing.JMenuItem jMenuItem;
+    private javax.swing.JMenuItem jMenuItemCargarDatosDesdeArchivo;
+    private javax.swing.JMenuItem jMenuItemIntroducirDatos;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }

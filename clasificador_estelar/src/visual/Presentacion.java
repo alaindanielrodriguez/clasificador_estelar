@@ -144,6 +144,7 @@ public class Presentacion extends javax.swing.JFrame{
 
     
     Principal principal;
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
