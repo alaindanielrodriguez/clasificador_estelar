@@ -7,6 +7,9 @@ package visual;
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
+import clasificador_estelar.PrologProgram;
+import javax.swing.JOptionPane;
+import utiles.keyboradUtil;
 
 /**
  *
@@ -21,10 +24,12 @@ public class IntroducirDatos extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         ImageIcon imageIcon = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/imagenes/pexels-felix-mittermeier-956999.jpg"))); // load the image to a imageIcon
-        Image image = imageIcon.getImage(); 
+        Image image = imageIcon.getImage();
         Image newimg = image.getScaledInstance(jLabelFondo.getWidth(), jLabelFondo.getHeight(), Image.SCALE_SMOOTH); // scale it the smooth way  
-        imageIcon = new ImageIcon(newimg);  
+        imageIcon = new ImageIcon(newimg);
         jLabelFondo.setIcon(imageIcon);
+        
+        siguienteCampo();
     }
 
     /**
@@ -40,23 +45,24 @@ public class IntroducirDatos extends javax.swing.JDialog {
         jLabelTitulo = new javax.swing.JLabel();
         jLabelId = new javax.swing.JLabel();
         jTextFieldId = new javax.swing.JTextField();
-        jTextFieldId1 = new javax.swing.JTextField();
+        jTextFieldAscension = new javax.swing.JTextField();
         jLabelId1 = new javax.swing.JLabel();
         jLabelId2 = new javax.swing.JLabel();
-        jTextFieldId2 = new javax.swing.JTextField();
-        jTextFieldId3 = new javax.swing.JTextField();
-        jTextFieldId4 = new javax.swing.JTextField();
+        jTextFieldDeclinacion = new javax.swing.JTextField();
+        jTextFieldCorrimiento = new javax.swing.JTextField();
+        jTextFieldUltravioleta = new javax.swing.JTextField();
         jLabelId3 = new javax.swing.JLabel();
         jLabelId4 = new javax.swing.JLabel();
         jLabelId5 = new javax.swing.JLabel();
-        jTextFieldId5 = new javax.swing.JTextField();
-        jTextFieldId6 = new javax.swing.JTextField();
+        jTextFieldVerde = new javax.swing.JTextField();
+        jTextFieldInfrarrojoCercano = new javax.swing.JTextField();
         jLabelId6 = new javax.swing.JLabel();
         jLabelId7 = new javax.swing.JLabel();
-        jTextFieldId7 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jTextFieldInfrarrojo = new javax.swing.JTextField();
+        jButtonAceptar = new javax.swing.JButton();
+        jButtonCancelar = new javax.swing.JButton();
+        jButtonLimpiar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -72,23 +78,78 @@ public class IntroducirDatos extends javax.swing.JDialog {
         jLabelId.setForeground(new java.awt.Color(255, 255, 255));
         jLabelId.setText("Identificador de objeto:");
         jPanel1.add(jLabelId, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 130, 20));
+
+        jTextFieldId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldIdActionPerformed(evt);
+            }
+        });
+        jTextFieldId.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextFieldIdKeyPressed(evt);
+            }
+        });
         jPanel1.add(jTextFieldId, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, 70, -1));
-        jPanel1.add(jTextFieldId1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, 70, -1));
+
+        jTextFieldAscension.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldAscensionActionPerformed(evt);
+            }
+        });
+        jTextFieldAscension.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextFieldAscensionKeyPressed(evt);
+            }
+        });
+        jPanel1.add(jTextFieldAscension, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, 70, -1));
 
         jLabelId1.setForeground(new java.awt.Color(255, 255, 255));
         jLabelId1.setText("Ascensión recta:");
-        jPanel1.add(jLabelId1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 90, 20));
+        jPanel1.add(jLabelId1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 130, 20));
 
         jLabelId2.setForeground(new java.awt.Color(255, 255, 255));
         jLabelId2.setText("Declinación:");
-        jPanel1.add(jLabelId2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, 70, 20));
-        jPanel1.add(jTextFieldId2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 70, -1));
-        jPanel1.add(jTextFieldId3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, 70, -1));
-        jPanel1.add(jTextFieldId4, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 80, 70, -1));
+        jPanel1.add(jLabelId2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 70, 20));
+
+        jTextFieldDeclinacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldDeclinacionActionPerformed(evt);
+            }
+        });
+        jTextFieldDeclinacion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextFieldDeclinacionKeyPressed(evt);
+            }
+        });
+        jPanel1.add(jTextFieldDeclinacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 70, -1));
+
+        jTextFieldCorrimiento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldCorrimientoActionPerformed(evt);
+            }
+        });
+        jTextFieldCorrimiento.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextFieldCorrimientoKeyPressed(evt);
+            }
+        });
+        jPanel1.add(jTextFieldCorrimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, 70, -1));
+
+        jTextFieldUltravioleta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldUltravioletaActionPerformed(evt);
+            }
+        });
+        jTextFieldUltravioleta.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextFieldUltravioletaKeyPressed(evt);
+            }
+        });
+        jPanel1.add(jTextFieldUltravioleta, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 80, 70, -1));
 
         jLabelId3.setForeground(new java.awt.Color(255, 255, 255));
         jLabelId3.setText("Corrimiento al rojo:");
-        jPanel1.add(jLabelId3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 130, 20));
+        jPanel1.add(jLabelId3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 130, 20));
 
         jLabelId4.setForeground(new java.awt.Color(255, 255, 255));
         jLabelId4.setText("Filtro ultravioleta*:");
@@ -96,27 +157,80 @@ public class IntroducirDatos extends javax.swing.JDialog {
 
         jLabelId5.setForeground(new java.awt.Color(255, 255, 255));
         jLabelId5.setText("Filtro de verde*:");
-        jPanel1.add(jLabelId5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 110, 130, 20));
-        jPanel1.add(jTextFieldId5, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 110, 70, -1));
-        jPanel1.add(jTextFieldId6, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 170, 70, -1));
+        jPanel1.add(jLabelId5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 110, 90, 20));
+
+        jTextFieldVerde.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldVerdeActionPerformed(evt);
+            }
+        });
+        jTextFieldVerde.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextFieldVerdeKeyPressed(evt);
+            }
+        });
+        jPanel1.add(jTextFieldVerde, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 110, 70, -1));
+
+        jTextFieldInfrarrojoCercano.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldInfrarrojoCercanoActionPerformed(evt);
+            }
+        });
+        jTextFieldInfrarrojoCercano.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextFieldInfrarrojoCercanoKeyPressed(evt);
+            }
+        });
+        jPanel1.add(jTextFieldInfrarrojoCercano, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 170, 70, -1));
 
         jLabelId6.setForeground(new java.awt.Color(255, 255, 255));
         jLabelId6.setText("Filtro de infrarrojo cercano*:");
-        jPanel1.add(jLabelId6, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 170, 150, 20));
+        jPanel1.add(jLabelId6, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 170, 170, 20));
 
         jLabelId7.setForeground(new java.awt.Color(255, 255, 255));
         jLabelId7.setText("Filtro de infrarrojo*:");
-        jPanel1.add(jLabelId7, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 140, 150, 20));
-        jPanel1.add(jTextFieldId7, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 140, 70, -1));
+        jPanel1.add(jLabelId7, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 140, 110, 20));
 
-        jButton1.setText("Aceptar");
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, -1, -1));
+        jTextFieldInfrarrojo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldInfrarrojoActionPerformed(evt);
+            }
+        });
+        jTextFieldInfrarrojo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextFieldInfrarrojoKeyPressed(evt);
+            }
+        });
+        jPanel1.add(jTextFieldInfrarrojo, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 140, 70, -1));
 
-        jButton2.setText("Cancelar");
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, -1, -1));
+        jButtonAceptar.setText("Aceptar");
+        jButtonAceptar.setEnabled(false);
+        jButtonAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAceptarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButtonAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, -1, -1));
 
-        jButton3.setText("Limpiar");
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 270, 80, -1));
+        jButtonCancelar.setText("Cancelar");
+        jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCancelarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, -1, -1));
+
+        jButtonLimpiar.setText("Limpiar");
+        jButtonLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonLimpiarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButtonLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 270, 80, -1));
+
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("*En el sistema fotométrico del SDSS.");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 220, 340, 20));
 
         jLabelFondo.setForeground(new java.awt.Color(255, 255, 255));
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pexels-igor-mashkov-6325001.jpg"))); // NOI18N
@@ -128,6 +242,161 @@ public class IntroducirDatos extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jTextFieldUltravioletaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUltravioletaActionPerformed
+
+    }//GEN-LAST:event_jTextFieldUltravioletaActionPerformed
+
+    private void jTextFieldAscensionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldAscensionActionPerformed
+
+    }//GEN-LAST:event_jTextFieldAscensionActionPerformed
+
+    private void jTextFieldCorrimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCorrimientoActionPerformed
+
+    }//GEN-LAST:event_jTextFieldCorrimientoActionPerformed
+
+    private void jTextFieldInfrarrojoCercanoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldInfrarrojoCercanoActionPerformed
+
+    }//GEN-LAST:event_jTextFieldInfrarrojoCercanoActionPerformed
+
+    private void jButtonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAceptarActionPerformed
+        String idObj = jTextFieldId.getText();
+        String ascension = jTextFieldAscension.getText();
+        String declinacion = jTextFieldDeclinacion.getText();
+        String corrimiento_rojo = jTextFieldCorrimiento.getText();
+        String ultravioleta = jTextFieldUltravioleta.getText();
+        String verde = jTextFieldVerde.getText();
+        String infrarrojo = jTextFieldInfrarrojo.getText();
+        String infrarrojo_cercano = jTextFieldInfrarrojoCercano.getText();
+
+            PrologProgram programa = new PrologProgram(idObj, corrimiento_rojo, ultravioleta, verde, infrarrojo, infrarrojo_cercano);
+
+            JOptionPane.showMessageDialog(rootPane, "El objeto de identificador " + idObj + " ha sido clasificado como " + programa.clasificar() + " .");
+        
+    }//GEN-LAST:event_jButtonAceptarActionPerformed
+
+    private void jButtonLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimpiarActionPerformed
+        limpiar();
+    }//GEN-LAST:event_jButtonLimpiarActionPerformed
+
+    private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
+        limpiar();
+        this.dispose();
+    }//GEN-LAST:event_jButtonCancelarActionPerformed
+
+    private void jTextFieldIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldIdActionPerformed
+
+    }//GEN-LAST:event_jTextFieldIdActionPerformed
+
+    private void jTextFieldDeclinacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDeclinacionActionPerformed
+
+    }//GEN-LAST:event_jTextFieldDeclinacionActionPerformed
+
+    private void jTextFieldVerdeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldVerdeActionPerformed
+
+    }//GEN-LAST:event_jTextFieldVerdeActionPerformed
+
+    private void jTextFieldInfrarrojoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldInfrarrojoActionPerformed
+
+    }//GEN-LAST:event_jTextFieldInfrarrojoActionPerformed
+
+    private void jTextFieldIdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldIdKeyPressed
+       habilitarAceptar();
+    }//GEN-LAST:event_jTextFieldIdKeyPressed
+
+    private void jTextFieldAscensionKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldAscensionKeyPressed
+       habilitarAceptar();
+    }//GEN-LAST:event_jTextFieldAscensionKeyPressed
+
+    private void jTextFieldDeclinacionKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldDeclinacionKeyPressed
+       habilitarAceptar();
+    }//GEN-LAST:event_jTextFieldDeclinacionKeyPressed
+
+    private void jTextFieldCorrimientoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCorrimientoKeyPressed
+        habilitarAceptar();
+    }//GEN-LAST:event_jTextFieldCorrimientoKeyPressed
+
+    private void jTextFieldUltravioletaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldUltravioletaKeyPressed
+        habilitarAceptar();
+    }//GEN-LAST:event_jTextFieldUltravioletaKeyPressed
+
+    private void jTextFieldVerdeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldVerdeKeyPressed
+        habilitarAceptar();
+    }//GEN-LAST:event_jTextFieldVerdeKeyPressed
+
+    private void jTextFieldInfrarrojoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldInfrarrojoKeyPressed
+        habilitarAceptar();
+    }//GEN-LAST:event_jTextFieldInfrarrojoKeyPressed
+
+    private void jTextFieldInfrarrojoCercanoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldInfrarrojoCercanoKeyPressed
+        habilitarAceptar();
+    }//GEN-LAST:event_jTextFieldInfrarrojoCercanoKeyPressed
+
+    private void limpiar() {
+        jTextFieldId.setText("");
+        jTextFieldAscension.setText("");
+        jTextFieldDeclinacion.setText("");
+        jTextFieldCorrimiento.setText("");
+        jTextFieldUltravioleta.setText("");
+        jTextFieldVerde.setText("");
+        jTextFieldInfrarrojo.setText("");
+        jTextFieldInfrarrojoCercano.setText("");
+    }
+
+    public void verificarLlenos() throws CamposIncorrectosException {
+        if (jTextFieldId.getText().isEmpty()
+                || jTextFieldAscension.getText().isEmpty()
+                || jTextFieldDeclinacion.getText().isEmpty()
+                || jTextFieldCorrimiento.getText().isEmpty()
+                || jTextFieldUltravioleta.getText().isEmpty()
+                || jTextFieldVerde.getText().isEmpty()
+                || jTextFieldInfrarrojo.getText().isEmpty()
+                || jTextFieldInfrarrojoCercano.getText().isEmpty()) {
+            throw new CamposIncorrectosException();
+        }
+    }
+
+    public void verificarValores() throws NumberFormatException, CamposIncorrectosException {
+
+        double ascension = Double.parseDouble(jTextFieldAscension.getText());
+        if (ascension < 0 || ascension > 360) {
+            throw new CamposIncorrectosException();
+        }
+
+        double declinacion = Double.parseDouble(jTextFieldDeclinacion.getText());
+        if (declinacion < -90 || declinacion > 90) {
+            throw new CamposIncorrectosException();
+        }
+
+        Double.parseDouble(jTextFieldUltravioleta.getText());
+
+        Double.parseDouble(jTextFieldVerde.getText());
+
+        Double.parseDouble(jTextFieldInfrarrojo.getText());
+
+        Double.parseDouble(jTextFieldInfrarrojoCercano.getText());
+
+    }
+
+    public void habilitarAceptar(){
+        try{
+            verificarLlenos();
+            verificarValores();
+            jButtonAceptar.setEnabled(true);
+        }
+        catch(Exception e){
+        }
+    }
+    
+    public void siguienteCampo(){
+        keyboradUtil.siguienteCampo(jTextFieldId, jTextFieldAscension);
+        keyboradUtil.siguienteCampo(jTextFieldAscension, jTextFieldDeclinacion);
+        keyboradUtil.siguienteCampo(jTextFieldDeclinacion, jTextFieldCorrimiento);
+        keyboradUtil.siguienteCampo(jTextFieldCorrimiento, jTextFieldUltravioleta);
+        keyboradUtil.siguienteCampo(jTextFieldUltravioleta, jTextFieldVerde);
+        keyboradUtil.siguienteCampo(jTextFieldVerde, jTextFieldInfrarrojo);
+        keyboradUtil.siguienteCampo(jTextFieldInfrarrojo, jTextFieldInfrarrojoCercano);
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -170,10 +439,14 @@ public class IntroducirDatos extends javax.swing.JDialog {
         });
     }
 
+    class CamposIncorrectosException extends Exception {
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButtonAceptar;
+    private javax.swing.JButton jButtonCancelar;
+    private javax.swing.JButton jButtonLimpiar;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelFondo;
     private javax.swing.JLabel jLabelId;
     private javax.swing.JLabel jLabelId1;
@@ -185,13 +458,13 @@ public class IntroducirDatos extends javax.swing.JDialog {
     private javax.swing.JLabel jLabelId7;
     private javax.swing.JLabel jLabelTitulo;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField jTextFieldAscension;
+    private javax.swing.JTextField jTextFieldCorrimiento;
+    private javax.swing.JTextField jTextFieldDeclinacion;
     private javax.swing.JTextField jTextFieldId;
-    private javax.swing.JTextField jTextFieldId1;
-    private javax.swing.JTextField jTextFieldId2;
-    private javax.swing.JTextField jTextFieldId3;
-    private javax.swing.JTextField jTextFieldId4;
-    private javax.swing.JTextField jTextFieldId5;
-    private javax.swing.JTextField jTextFieldId6;
-    private javax.swing.JTextField jTextFieldId7;
+    private javax.swing.JTextField jTextFieldInfrarrojo;
+    private javax.swing.JTextField jTextFieldInfrarrojoCercano;
+    private javax.swing.JTextField jTextFieldUltravioleta;
+    private javax.swing.JTextField jTextFieldVerde;
     // End of variables declaration//GEN-END:variables
 }
