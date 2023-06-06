@@ -22,10 +22,8 @@ public class PrologProgram {
     }
     
     public String clasificar(){
-        JPL.init();
-        
-        Query consult2 = new Query("consult('src/clasificador_estelar/programa.pl')");
-        consult2.hasSolution();
+        Query consult = new Query("consult('src/clasificador_estelar/programa.pl')");
+        consult.hasSolution();
         
         Term c_r=Term.textToTerm("corrimiento_rojo("+idObj+", "+corrimiento_rojo+")");
         Query.hasSolution("assert(" + c_r + ")");
@@ -49,6 +47,12 @@ public class PrologProgram {
         java.util.Map<String, Term> solution;
         solution = hallar_clase.oneSolution();
 
+        Query.hasSolution("retractall(corrimiento_rojo(X, Y))");
+        Query.hasSolution("retractall(filtro_ultravioleta(X, Y))");
+        Query.hasSolution("retractall(filtro_verde(X, Y))");
+        Query.hasSolution("retractall(filtro_infrarrojo(X, Y))");
+        Query.hasSolution("retractall(filtro_infrarrojo_cercano(X, Y))");
+        
         return solution.get("X")+"";
 
     }

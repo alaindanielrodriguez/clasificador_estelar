@@ -268,9 +268,9 @@ public class IntroducirDatos extends javax.swing.JDialog {
         String infrarrojo = jTextFieldInfrarrojo.getText();
         String infrarrojo_cercano = jTextFieldInfrarrojoCercano.getText();
 
-            PrologProgram programa = new PrologProgram(idObj, corrimiento_rojo, ultravioleta, verde, infrarrojo, infrarrojo_cercano);
+        PrologProgram programa = new PrologProgram(idObj, corrimiento_rojo, ultravioleta, verde, infrarrojo, infrarrojo_cercano);
 
-            JOptionPane.showMessageDialog(rootPane, "El objeto de identificador " + idObj + " ha sido clasificado como " + programa.clasificar() + " .");
+        JOptionPane.showMessageDialog(rootPane, "El objeto de identificador " + idObj + " ha sido clasificado como " + programa.clasificar() + " .");
         
     }//GEN-LAST:event_jButtonAceptarActionPerformed
 
