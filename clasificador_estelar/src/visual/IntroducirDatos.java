@@ -16,12 +16,13 @@ import utiles.keyboradUtil;
  * @author alain
  */
 public class IntroducirDatos extends javax.swing.JDialog {
-
+    private java.awt.Frame parent;
     /**
      * Creates new form IntroducirDatos
      */
     public IntroducirDatos(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
+        this.parent=parent;
         initComponents();
         ImageIcon imageIcon = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/imagenes/pexels-felix-mittermeier-956999.jpg"))); // load the image to a imageIcon
         Image image = imageIcon.getImage();
@@ -270,7 +271,14 @@ public class IntroducirDatos extends javax.swing.JDialog {
 
         PrologProgram programa = new PrologProgram(idObj, corrimiento_rojo, ultravioleta, verde, infrarrojo, infrarrojo_cercano);
 
-        JOptionPane.showMessageDialog(rootPane, "El objeto de identificador " + idObj + " ha sido clasificado como " + programa.clasificar() + " .");
+        String tipo=programa.clasificar();
+        
+        limpiar();
+        
+        Resultado resultado=new Resultado(parent, true, idObj, ascension, declinacion, tipo);
+        
+        resultado.setLocationRelativeTo(null);
+        resultado.setVisible(true);
         
     }//GEN-LAST:event_jButtonAceptarActionPerformed
 
