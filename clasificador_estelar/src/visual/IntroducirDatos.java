@@ -275,11 +275,13 @@ public class IntroducirDatos extends javax.swing.JDialog {
         
         limpiar();
         
-        Resultado resultado=new Resultado(parent, true, idObj, ascension, declinacion, tipo);
+        Resultado resultado=new Resultado(parent, true, idObj, ascension, declinacion, tipo, 
+            corrimiento_rojo, ultravioleta, verde, infrarrojo, infrarrojo_cercano);
         
         resultado.setLocationRelativeTo(null);
         resultado.setVisible(true);
         
+        jButtonAceptar.setEnabled(false);
     }//GEN-LAST:event_jButtonAceptarActionPerformed
 
     private void jButtonLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimpiarActionPerformed

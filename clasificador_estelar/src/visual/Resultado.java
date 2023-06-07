@@ -7,22 +7,39 @@ package visual;
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
+import java.io.*;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author alain
  */
 public class Resultado extends javax.swing.JDialog {
+    private String idObj, ascension, declinacion, corrimiento_rojo, ultravioleta, verde, infrarrojo, infrarrojo_cercano, tipo;
     
-    
-    public Resultado(java.awt.Frame parent, boolean modal, String idObj, String ascension, String declinacion, String tipo) {
+    public Resultado(java.awt.Frame parent, boolean modal, 
+            String idObj, String ascension, String declinacion, String tipo, 
+            String corrimiento_rojo, String ultravioleta, String verde, 
+            String infrarrojo, String infrarrojo_cercano) {
+        
         super(parent, modal);
         initComponents();
+        
+        this.idObj=idObj;
+        this.ascension=ascension;
+        this.declinacion=declinacion;
+        this.corrimiento_rojo=corrimiento_rojo;
+        this.ultravioleta=ultravioleta;
+        this.verde=verde;
+        this.infrarrojo=infrarrojo;
+        this.infrarrojo_cercano=infrarrojo_cercano;
+        this.tipo=tipo;
         
         String nombre_imagen="";
         
         switch (tipo){
-            case "estrella": nombre_imagen="Pleiades_cluster_tõrva.jpg"; break;
+            case "estrella": nombre_imagen="Aldebaran_DSS.png"; break;
             case "galaxia": nombre_imagen="NGC_2683_Spiral_galaxy.jpg"; break;
             case "cuasar": nombre_imagen="Artist's_rendering_ULAS_J1120+0641.jpg"; break;
             default:;        
@@ -59,6 +76,8 @@ public class Resultado extends javax.swing.JDialog {
         jLabelDeclinacion = new javax.swing.JLabel();
         jLabelClase = new javax.swing.JLabel();
         jLabelAscension = new javax.swing.JLabel();
+        jButtonGuardar = new javax.swing.JButton();
+        jButtonAceptar = new javax.swing.JButton();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -91,6 +110,22 @@ public class Resultado extends javax.swing.JDialog {
         jLabelAscension.setText("Ascensión:");
         jPanel1.add(jLabelAscension, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, 140, -1));
 
+        jButtonGuardar.setText("Guardar");
+        jButtonGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonGuardarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButtonGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 150, -1, -1));
+
+        jButtonAceptar.setText("Aceptar");
+        jButtonAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAceptarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButtonAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 150, -1, -1));
+
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/48_Cancri.jpg"))); // NOI18N
         jPanel1.add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 430, 190));
 
@@ -98,6 +133,41 @@ public class Resultado extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAceptarActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jButtonAceptarActionPerformed
+
+    private void jButtonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarActionPerformed
+        String texto="Identificador: "+idObj+".\nAscensión recta: "+ascension+
+                ".\nDeclinación: "+declinacion+".\nCorrimiento al rojo: "+
+                corrimiento_rojo+".\nFiltro ultravioleta: "+ultravioleta
+                +".\nFiltro verde: "+verde+".\nFiltro infrarrojo: "+infrarrojo
+                +".\nFiltro infrarrojo cercano: "+infrarrojo_cercano+".\n\nTIPO: "+tipo.toUpperCase();
+        
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setDialogTitle("Seleccionar ubicación del archivo.");
+
+        int seleccion = fileChooser.showSaveDialog(this);
+
+        if (seleccion == JFileChooser.APPROVE_OPTION) {
+            File archivo = fileChooser.getSelectedFile();
+            String ruta = archivo.getAbsolutePath();
+
+            try {
+                FileWriter escritor = new FileWriter(ruta);
+                escritor.write(texto);
+                escritor.close();
+                
+                JOptionPane.showMessageDialog(rootPane, "El fichero de texto con los datos ha sido creado.");
+                this.dispose();
+                
+            } catch (IOException e) {
+               
+            }
+        }
+               
+    }//GEN-LAST:event_jButtonGuardarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -130,6 +200,8 @@ public class Resultado extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonAceptar;
+    private javax.swing.JButton jButtonGuardar;
     private javax.swing.JLabel jLabelAscension;
     private javax.swing.JLabel jLabelClase;
     private javax.swing.JLabel jLabelDeclinacion;
