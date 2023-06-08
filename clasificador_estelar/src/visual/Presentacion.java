@@ -56,7 +56,7 @@ public class Presentacion extends javax.swing.JFrame{
         jLabel1.setText("CLASIFICADOR ESTELAR");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 400, 120));
 
-        jButton1.setText("Menu principal");
+        jButton1.setText("Menú principal");
         jButton1.setFocusPainted(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

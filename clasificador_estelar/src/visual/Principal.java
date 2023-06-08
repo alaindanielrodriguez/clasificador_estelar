@@ -5,28 +5,46 @@
 package visual;
 
 import java.awt.Image;
+import java.awt.Point;
 import java.awt.Toolkit;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionAdapter;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import javax.swing.ImageIcon;
+import javax.swing.JComponent;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.JRootPane;
+import javax.swing.TransferHandler;
 
 /**
  *
  * @author alain
  */
 public class Principal extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form Principal
      */
     public Principal() {
+        
+        this.setUndecorated(true);
+     
         initComponents();
         
         ImageIcon imageIcon = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/imagenes/pexels-pixabay-2150.jpg"))); // load the image to a imageIcon
         Image image = imageIcon.getImage(); 
-        Image newimg = image.getScaledInstance(jLabelFondo.getWidth(), jLabelFondo.getHeight(), Image.SCALE_SMOOTH); // scale it the smooth way  
+        Image newimg = image.getScaledInstance(jMenuCerrar.getWidth(), jMenuCerrar.getHeight(), Image.SCALE_SMOOTH); // scale it the smooth way  
         imageIcon = new ImageIcon(newimg);  
-        jLabelFondo.setIcon(imageIcon);
+        jMenuCerrar.setIcon(imageIcon);
         
         this.setLocationRelativeTo(null);
+
         
     }
 
@@ -40,28 +58,35 @@ public class Principal extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
-        jLabelFondo = new javax.swing.JLabel();
+        jMenuCerrar = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuClasificar = new javax.swing.JMenu();
         jMenuItemIntroducirDatos = new javax.swing.JMenuItem();
         jMenuItemCargarDatosDesdeArchivo = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
+        jMenuInformacion = new javax.swing.JMenu();
         jMenuItem = new javax.swing.JMenuItem();
-        jMenu4 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuAyuda = new javax.swing.JMenu();
+        jMenuItemComoUsar = new javax.swing.JMenuItem();
+        jMenuItemAcercaDe = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         setResizable(false);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabelFondo, javax.swing.GroupLayout.DEFAULT_SIZE, 576, Short.MAX_VALUE)
+            .addComponent(jMenuCerrar, javax.swing.GroupLayout.DEFAULT_SIZE, 576, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabelFondo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 437, Short.MAX_VALUE)
+            .addComponent(jMenuCerrar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 437, Short.MAX_VALUE)
         );
 
         jMenuClasificar.setText("Clasificar");
@@ -89,19 +114,53 @@ public class Principal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenuClasificar);
 
-        jMenu2.setText("Información");
+        jMenuInformacion.setText("Información");
 
-        jMenuItem.setText("jMenuItem1");
-        jMenu2.add(jMenuItem);
+        jMenuItem.setText("¿Qué es una estrella?");
+        jMenuInformacion.add(jMenuItem);
 
-        jMenuBar1.add(jMenu2);
+        jMenuItem3.setText("¿Qué es una galaxia?");
+        jMenuInformacion.add(jMenuItem3);
 
-        jMenu4.setText("Ayuda");
+        jMenuItem2.setText("¿Qué es un cuásar?");
+        jMenuInformacion.add(jMenuItem2);
 
-        jMenu3.setText("Acerca de");
-        jMenu4.add(jMenu3);
+        jMenuItem4.setText("¿Cómo se obtuvo el modelo de clasificación?");
+        jMenuInformacion.add(jMenuItem4);
 
-        jMenuBar1.add(jMenu4);
+        jMenuBar1.add(jMenuInformacion);
+
+        jMenuAyuda.setText("Ayuda");
+
+        jMenuItemComoUsar.setText("Cómo usar la aplicación");
+        jMenuAyuda.add(jMenuItemComoUsar);
+
+        jMenuItemAcercaDe.setText("Acerca de la aplicación");
+        jMenuItemAcercaDe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemAcercaDeActionPerformed(evt);
+            }
+        });
+        jMenuAyuda.add(jMenuItemAcercaDe);
+
+        jMenuBar1.add(jMenuAyuda);
+
+        jMenu1.setText("Cerrar");
+        jMenu1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu1ActionPerformed(evt);
+            }
+        });
+
+        jMenuItem1.setText("Salir");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
+
+        jMenuBar1.add(jMenu1);
 
         setJMenuBar(jMenuBar1);
 
@@ -120,7 +179,45 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItemCargarDatosDesdeArchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCargarDatosDesdeArchivoActionPerformed
-        // TODO add your handling code here:
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setDialogTitle("Seleccionar ubicación del archivo.");
+
+        int seleccion = fileChooser.showSaveDialog(this);
+
+        if (seleccion == JFileChooser.APPROVE_OPTION) {
+            File archivo = fileChooser.getSelectedFile();
+            String ruta = archivo.getAbsolutePath();
+
+            try {
+                
+                BufferedReader br = new BufferedReader(new FileReader(archivo));
+                
+                String linea=br.readLine();
+                
+                String[] datos = linea.split(",");
+                
+                IntroducirDatos ventana=new IntroducirDatos(this, true);
+                
+                ventana.setTextFieldId(datos[0]);
+                ventana.setTextFieldAscension(datos[1]);
+                ventana.setTextFieldDeclinacion(datos[2]);
+                ventana.setTextFieldCorrimiento(datos[3]);
+                ventana.setTextFieldUltravioleta(datos[4]);
+                ventana.setTextFieldVerde(datos[5]);
+                ventana.setTextFieldInfrarrojo(datos[6]);
+                ventana.setTextFieldInfrarrojoCercano(datos[7]);
+                
+                ventana.setLocationRelativeTo(null);
+                
+                ventana.habilitarAceptarAlCargar();
+                ventana.setVisible(true);
+                
+               
+                
+            } catch (IOException e) {
+               
+            }
+        }
     }//GEN-LAST:event_jMenuItemCargarDatosDesdeArchivoActionPerformed
 
     private void jMenuClasificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuClasificarActionPerformed
@@ -133,6 +230,20 @@ public class Principal extends javax.swing.JFrame {
         intD.setResizable(false);
         intD.setVisible(true);
     }//GEN-LAST:event_jMenuItemIntroducirDatosActionPerformed
+
+    private void jMenuItemAcercaDeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemAcercaDeActionPerformed
+        AcercaDe acerca_de = new AcercaDe(this, true);
+        acerca_de.setLocationRelativeTo(null);
+        acerca_de.setVisible(true);
+    }//GEN-LAST:event_jMenuItemAcercaDeActionPerformed
+
+    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
+        
+    }//GEN-LAST:event_jMenu1ActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -171,14 +282,20 @@ public class Principal extends javax.swing.JFrame {
 
     private IntroducirDatos intD;
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabelFondo;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenuAyuda;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JLabel jMenuCerrar;
     private javax.swing.JMenu jMenuClasificar;
+    private javax.swing.JMenu jMenuInformacion;
     private javax.swing.JMenuItem jMenuItem;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItemAcercaDe;
     private javax.swing.JMenuItem jMenuItemCargarDatosDesdeArchivo;
+    private javax.swing.JMenuItem jMenuItemComoUsar;
     private javax.swing.JMenuItem jMenuItemIntroducirDatos;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables

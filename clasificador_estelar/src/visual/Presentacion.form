@@ -64,7 +64,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButton1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Menu principal"/>
+            <Property name="text" type="java.lang.String" value="Men&#xfa; principal"/>
             <Property name="focusPainted" type="boolean" value="false"/>
           </Properties>
           <Events>

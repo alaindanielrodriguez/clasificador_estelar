@@ -19,6 +19,7 @@ public class Clasificador_estelar {
      */
     public static void main(String[] args) {
         Presentacion p=new Presentacion();
+        
         p.setVisible(true);
     }
     
