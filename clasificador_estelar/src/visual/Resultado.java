@@ -24,6 +24,8 @@ public class Resultado extends javax.swing.JDialog {
             String infrarrojo, String infrarrojo_cercano) {
         
         super(parent, modal);
+        
+        this.setUndecorated(true);
         initComponents();
         
         this.idObj=idObj;
@@ -86,50 +88,58 @@ public class Resultado extends javax.swing.JDialog {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabelResultado.setFont(new java.awt.Font("Junicode", 0, 18)); // NOI18N
         jLabelResultado.setForeground(new java.awt.Color(255, 255, 255));
         jLabelResultado.setText("RESULTADO DE LA CLASIFICACIÓN");
-        jPanel1.add(jLabelResultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 260, -1));
+        jPanel1.add(jLabelResultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, 400, 40));
 
+        jLabelIdentificador.setFont(new java.awt.Font("Junicode", 0, 18)); // NOI18N
         jLabelIdentificador.setForeground(new java.awt.Color(255, 255, 255));
         jLabelIdentificador.setText("Identificador:");
-        jPanel1.add(jLabelIdentificador, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 240, -1));
+        jPanel1.add(jLabelIdentificador, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 330, -1));
 
+        jLabelPosicion.setFont(new java.awt.Font("Junicode", 0, 18)); // NOI18N
         jLabelPosicion.setForeground(new java.awt.Color(255, 255, 255));
         jLabelPosicion.setText("Posición:");
-        jPanel1.add(jLabelPosicion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 80, -1));
+        jPanel1.add(jLabelPosicion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 180, -1));
 
+        jLabelDeclinacion.setFont(new java.awt.Font("Junicode", 0, 18)); // NOI18N
         jLabelDeclinacion.setForeground(new java.awt.Color(255, 255, 255));
         jLabelDeclinacion.setText("Declinación:");
-        jPanel1.add(jLabelDeclinacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 140, -1));
+        jPanel1.add(jLabelDeclinacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 320, -1));
 
+        jLabelClase.setFont(new java.awt.Font("Junicode", 0, 18)); // NOI18N
         jLabelClase.setForeground(new java.awt.Color(255, 255, 255));
         jLabelClase.setText("Tipo de objeto: ");
-        jPanel1.add(jLabelClase, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 330, -1));
+        jPanel1.add(jLabelClase, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 360, -1));
 
+        jLabelAscension.setFont(new java.awt.Font("Junicode", 0, 18)); // NOI18N
         jLabelAscension.setForeground(new java.awt.Color(255, 255, 255));
         jLabelAscension.setText("Ascensión:");
-        jPanel1.add(jLabelAscension, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, 140, -1));
+        jPanel1.add(jLabelAscension, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 280, -1));
 
+        jButtonGuardar.setFont(new java.awt.Font("Junicode", 0, 18)); // NOI18N
         jButtonGuardar.setText("Guardar");
         jButtonGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonGuardarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 150, -1, -1));
+        jPanel1.add(jButtonGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 230, -1, -1));
 
+        jButtonAceptar.setFont(new java.awt.Font("Junicode", 0, 18)); // NOI18N
         jButtonAceptar.setText("Aceptar");
         jButtonAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonAceptarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 150, -1, -1));
+        jPanel1.add(jButtonAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 230, -1, -1));
 
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/48_Cancri.jpg"))); // NOI18N
-        jPanel1.add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 430, 190));
+        jPanel1.add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 510, 290));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 430, 190));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 510, 290));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

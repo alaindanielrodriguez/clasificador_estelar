@@ -17,6 +17,8 @@ public class Presentacion extends javax.swing.JFrame{
      * Creates new form Presentacion
      */
     public Presentacion() {
+        this.setUndecorated(true);
+        
         initComponents();
         
         ImageIcon imageIcon = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/imagenes/pexels-igor-mashkov-6325001.jpg"))); // load the image to a imageIcon
@@ -56,6 +58,7 @@ public class Presentacion extends javax.swing.JFrame{
         jLabel1.setText("CLASIFICADOR ESTELAR");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 400, 120));
 
+        jButton1.setFont(new java.awt.Font("Junicode", 0, 18)); // NOI18N
         jButton1.setText("Menú principal");
         jButton1.setFocusPainted(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -63,13 +66,14 @@ public class Presentacion extends javax.swing.JFrame{
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 222, -1, -1));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Junicode", 2, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Bienvenido");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 160, -1, 24));
 
+        jButton2.setFont(new java.awt.Font("Junicode", 0, 18)); // NOI18N
         jButton2.setText("Salir");
         jButton2.setFocusPainted(false);
         jButton2.addActionListener(new java.awt.event.ActionListener() {

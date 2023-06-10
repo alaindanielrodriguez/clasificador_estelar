@@ -39,9 +39,9 @@ public class Principal extends javax.swing.JFrame {
         
         ImageIcon imageIcon = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/imagenes/pexels-pixabay-2150.jpg"))); // load the image to a imageIcon
         Image image = imageIcon.getImage(); 
-        Image newimg = image.getScaledInstance(jMenuCerrar.getWidth(), jMenuCerrar.getHeight(), Image.SCALE_SMOOTH); // scale it the smooth way  
+        Image newimg = image.getScaledInstance(jLabelFondo.getWidth(), jLabelFondo.getHeight(), Image.SCALE_SMOOTH); // scale it the smooth way  
         imageIcon = new ImageIcon(newimg);  
-        jMenuCerrar.setIcon(imageIcon);
+        jLabelFondo.setIcon(imageIcon);
         
         this.setLocationRelativeTo(null);
 
@@ -58,16 +58,19 @@ public class Principal extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
-        jMenuCerrar = new javax.swing.JLabel();
+        jLabelFondo = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuClasificar = new javax.swing.JMenu();
         jMenuItemIntroducirDatos = new javax.swing.JMenuItem();
         jMenuItemCargarDatosDesdeArchivo = new javax.swing.JMenuItem();
         jMenuInformacion = new javax.swing.JMenu();
-        jMenuItem = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItemQueEsUnaEstrella = new javax.swing.JMenuItem();
+        jMenuItemQueEsUnaGalaxia = new javax.swing.JMenuItem();
+        jMenuItemQueEsUnCuasar = new javax.swing.JMenuItem();
+        jMenuItemComoSeObtuvoElModelo = new javax.swing.JMenuItem();
+        jMenuItemQueEsElCorrimientoAlRojo = new javax.swing.JMenuItem();
+        jMenuItemQueEsLaAscensionRecta = new javax.swing.JMenuItem();
+        jMenuItemQueEsLaDeclinacion = new javax.swing.JMenuItem();
         jMenuAyuda = new javax.swing.JMenu();
         jMenuItemComoUsar = new javax.swing.JMenuItem();
         jMenuItemAcercaDe = new javax.swing.JMenuItem();
@@ -75,6 +78,7 @@ public class Principal extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setFont(new java.awt.Font("Junicode", 0, 18)); // NOI18N
         setUndecorated(true);
         setResizable(false);
 
@@ -82,20 +86,25 @@ public class Principal extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jMenuCerrar, javax.swing.GroupLayout.DEFAULT_SIZE, 576, Short.MAX_VALUE)
+            .addComponent(jLabelFondo, javax.swing.GroupLayout.DEFAULT_SIZE, 762, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jMenuCerrar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 437, Short.MAX_VALUE)
+            .addComponent(jLabelFondo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 568, Short.MAX_VALUE)
         );
 
+        jMenuBar1.setFont(new java.awt.Font("Junicode", 0, 18)); // NOI18N
+        jMenuBar1.setPreferredSize(new java.awt.Dimension(230, 30));
+
         jMenuClasificar.setText("Clasificar");
+        jMenuClasificar.setFont(new java.awt.Font("Junicode", 0, 18)); // NOI18N
         jMenuClasificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuClasificarActionPerformed(evt);
             }
         });
 
+        jMenuItemIntroducirDatos.setFont(new java.awt.Font("Junicode", 0, 18)); // NOI18N
         jMenuItemIntroducirDatos.setText("Introducir datos");
         jMenuItemIntroducirDatos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -104,6 +113,7 @@ public class Principal extends javax.swing.JFrame {
         });
         jMenuClasificar.add(jMenuItemIntroducirDatos);
 
+        jMenuItemCargarDatosDesdeArchivo.setFont(new java.awt.Font("Junicode", 0, 18)); // NOI18N
         jMenuItemCargarDatosDesdeArchivo.setText("Importar desde archivo");
         jMenuItemCargarDatosDesdeArchivo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,26 +125,86 @@ public class Principal extends javax.swing.JFrame {
         jMenuBar1.add(jMenuClasificar);
 
         jMenuInformacion.setText("Información");
+        jMenuInformacion.setFont(new java.awt.Font("Junicode", 0, 18)); // NOI18N
 
-        jMenuItem.setText("¿Qué es una estrella?");
-        jMenuInformacion.add(jMenuItem);
+        jMenuItemQueEsUnaEstrella.setFont(new java.awt.Font("Junicode", 0, 18)); // NOI18N
+        jMenuItemQueEsUnaEstrella.setText("¿Qué es una estrella?");
+        jMenuItemQueEsUnaEstrella.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemQueEsUnaEstrellaActionPerformed(evt);
+            }
+        });
+        jMenuInformacion.add(jMenuItemQueEsUnaEstrella);
 
-        jMenuItem3.setText("¿Qué es una galaxia?");
-        jMenuInformacion.add(jMenuItem3);
+        jMenuItemQueEsUnaGalaxia.setFont(new java.awt.Font("Junicode", 0, 18)); // NOI18N
+        jMenuItemQueEsUnaGalaxia.setText("¿Qué es una galaxia?");
+        jMenuItemQueEsUnaGalaxia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemQueEsUnaGalaxiaActionPerformed(evt);
+            }
+        });
+        jMenuInformacion.add(jMenuItemQueEsUnaGalaxia);
 
-        jMenuItem2.setText("¿Qué es un cuásar?");
-        jMenuInformacion.add(jMenuItem2);
+        jMenuItemQueEsUnCuasar.setFont(new java.awt.Font("Junicode", 0, 18)); // NOI18N
+        jMenuItemQueEsUnCuasar.setText("¿Qué es un cuásar?");
+        jMenuItemQueEsUnCuasar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemQueEsUnCuasarActionPerformed(evt);
+            }
+        });
+        jMenuInformacion.add(jMenuItemQueEsUnCuasar);
 
-        jMenuItem4.setText("¿Cómo se obtuvo el modelo de clasificación?");
-        jMenuInformacion.add(jMenuItem4);
+        jMenuItemComoSeObtuvoElModelo.setFont(new java.awt.Font("Junicode", 0, 18)); // NOI18N
+        jMenuItemComoSeObtuvoElModelo.setText("¿Cómo se obtuvo el modelo de clasificación?");
+        jMenuItemComoSeObtuvoElModelo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemComoSeObtuvoElModeloActionPerformed(evt);
+            }
+        });
+        jMenuInformacion.add(jMenuItemComoSeObtuvoElModelo);
+
+        jMenuItemQueEsElCorrimientoAlRojo.setFont(new java.awt.Font("Junicode", 0, 18)); // NOI18N
+        jMenuItemQueEsElCorrimientoAlRojo.setText("¿Qué es el corrimiento al rojo?");
+        jMenuItemQueEsElCorrimientoAlRojo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemQueEsElCorrimientoAlRojoActionPerformed(evt);
+            }
+        });
+        jMenuInformacion.add(jMenuItemQueEsElCorrimientoAlRojo);
+
+        jMenuItemQueEsLaAscensionRecta.setFont(new java.awt.Font("Junicode", 0, 18)); // NOI18N
+        jMenuItemQueEsLaAscensionRecta.setText("¿Qué es la ascensión recta?");
+        jMenuItemQueEsLaAscensionRecta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemQueEsLaAscensionRectaActionPerformed(evt);
+            }
+        });
+        jMenuInformacion.add(jMenuItemQueEsLaAscensionRecta);
+
+        jMenuItemQueEsLaDeclinacion.setFont(new java.awt.Font("Junicode", 0, 18)); // NOI18N
+        jMenuItemQueEsLaDeclinacion.setText("¿Qué es la declinación?");
+        jMenuItemQueEsLaDeclinacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemQueEsLaDeclinacionActionPerformed(evt);
+            }
+        });
+        jMenuInformacion.add(jMenuItemQueEsLaDeclinacion);
 
         jMenuBar1.add(jMenuInformacion);
 
         jMenuAyuda.setText("Ayuda");
+        jMenuAyuda.setFont(new java.awt.Font("Junicode", 0, 18)); // NOI18N
 
+        jMenuItemComoUsar.setFont(new java.awt.Font("Junicode", 0, 18)); // NOI18N
         jMenuItemComoUsar.setText("Cómo usar la aplicación");
+        jMenuItemComoUsar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemComoUsarActionPerformed(evt);
+            }
+        });
         jMenuAyuda.add(jMenuItemComoUsar);
 
+        jMenuItemAcercaDe.setFont(new java.awt.Font("Junicode", 0, 18)); // NOI18N
         jMenuItemAcercaDe.setText("Acerca de la aplicación");
         jMenuItemAcercaDe.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -146,12 +216,14 @@ public class Principal extends javax.swing.JFrame {
         jMenuBar1.add(jMenuAyuda);
 
         jMenu1.setText("Cerrar");
+        jMenu1.setFont(new java.awt.Font("Junicode", 0, 18)); // NOI18N
         jMenu1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenu1ActionPerformed(evt);
             }
         });
 
+        jMenuItem1.setFont(new java.awt.Font("Junicode", 0, 18)); // NOI18N
         jMenuItem1.setText("Salir");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -245,6 +317,140 @@ public class Principal extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void jMenuItemQueEsUnaEstrellaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemQueEsUnaEstrellaActionPerformed
+        ImageIcon imageIcon = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/imagenes/sun.jpg"))); 
+        Image image = imageIcon.getImage();
+        Image newimg = image.getScaledInstance(150, 150, Image.SCALE_SMOOTH); // scale it the smooth way  
+        imageIcon = new ImageIcon(newimg);
+        
+        JOptionPane.showMessageDialog(this, "Una estrella (del latín: stella) es un esferoide \n"
+                + "luminoso que mantiene su forma debido a su propia gravedad.\n"
+                + "Durante al menos una parte de su vida, una estrella brilla\n"
+                + "debido a la fusión termonuclear del hidrógeno en helio en \n"
+                + "su núcleo, que libera energía, la cual atraviesa el interior\n"
+                + " de la estrella y, después, se irradia hacia el espacio exte-\n"
+                + "rior. La estrella más cercana a la Tierra es el Sol. Otras \n"
+                + "estrellas son visibles a simple vista desde la Tierra durante\n"
+                + "la noche, apareciendo como una diversidad de puntos luminosos\n"
+                + "aparentemente fijos en el cielo debido a su inmensa distancia\n"
+                + "de la misma. Históricamente las estrellas más prominentes fue-\n"
+                + "ron agrupadas en constelaciones y asterismos, y las más brillan-\n"
+                + "tes fueron denominadas con nombres propios.", "¿Qué es una estrella?" , JOptionPane.INFORMATION_MESSAGE, imageIcon);
+    }//GEN-LAST:event_jMenuItemQueEsUnaEstrellaActionPerformed
+
+    private void jMenuItemQueEsUnaGalaxiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemQueEsUnaGalaxiaActionPerformed
+                ImageIcon imageIcon = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/imagenes/galaxy.jpg"))); 
+                Image image = imageIcon.getImage();
+                Image newimg = image.getScaledInstance(150, 150, Image.SCALE_SMOOTH); // scale it the smooth way  
+                imageIcon = new ImageIcon(newimg);
+
+                JOptionPane.showMessageDialog(this, "Una galaxia (del griego γαλαξίας ‘lácteo’) es un\n"
+                        + "conjunto de estrellas, nubes de gas, planetas, polvo cósmico, \n"
+                        + "materia oscura y energía unidas gravitatoriamente en una es-\n"
+                        + "tructura más o menos definida. La cantidad de estrellas que \n"
+                        + "forman una galaxia es enorme y varía desde las galaxias ena-\n"
+                        + "nas, con 10^7, hasta las galaxias gigantes, con 10^14 estre-\n"
+                        + "llas. Formando parte de una galaxia existen subestructuras co-\n"
+                        + "mo las nebulosas, los cúmulos estelares y los sistemas estela-\n"
+                        + "res múltiples.\n", "¿Qué es un cuásar?", JOptionPane.INFORMATION_MESSAGE, imageIcon);
+    }//GEN-LAST:event_jMenuItemQueEsUnaGalaxiaActionPerformed
+
+    private void jMenuItemQueEsUnCuasarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemQueEsUnCuasarActionPerformed
+        ImageIcon imageIcon = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/imagenes/quasar.jpg"))); 
+        Image image = imageIcon.getImage();
+        Image newimg = image.getScaledInstance(150, 150, Image.SCALE_SMOOTH); // scale it the smooth way  
+        imageIcon = new ImageIcon(newimg);
+        
+        JOptionPane.showMessageDialog(this, "Un cuásar o quasar (acrónimo de «fuente de ra-\n"
+                        + "dio cuasiestelar», traducción del inglés quasi-stellar ra-\n"
+                        + "dio source) se define como, bien una galaxia recién nacida\n"
+                        + "o bien aquella fuente de energía que se presenta en el agu-\n"
+                        + "jero negro del centro de dichas galaxias recién nacidas, ca-\n"
+                        + "racterizados por ser una fuente astronómica de energía elec-\n"
+                        + "tromagnética, que incluye radiofrecuencias y luz visible.", "¿Qué es una galaxia?", JOptionPane.INFORMATION_MESSAGE, imageIcon);
+    
+    }//GEN-LAST:event_jMenuItemQueEsUnCuasarActionPerformed
+
+    private void jMenuItemComoSeObtuvoElModeloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemComoSeObtuvoElModeloActionPerformed
+        ImageIcon imageIcon = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/imagenes/arbol.jpg")));
+        Image image = imageIcon.getImage();
+        Image newimg = image.getScaledInstance(150, 150, Image.SCALE_SMOOTH); // scale it the smooth way  
+        imageIcon = new ImageIcon(newimg);    
+        
+        JOptionPane.showMessageDialog(this, "El modelo clasificador usado por la presente\n"
+                + "aplicación se obtuvo mediante el análisis de \"data\n"
+                + "mining\" de un conjunto de datos de 100.000 instancias\n"
+                + "recopilado por el proyecto Sloan Digital Sky Survey (SDSS).\n"
+                + "Usando el software de minería de datos Weka se construyó un\n"
+                + "árbol de decisión que predice la clase de los objetos estela-\n"
+                + "res sobre la base de un conjunto de sus atributos espectrales.", "¿Cómo se obtuvo el modelo de clasificación?", JOptionPane.INFORMATION_MESSAGE, imageIcon);
+    
+    }//GEN-LAST:event_jMenuItemComoSeObtuvoElModeloActionPerformed
+
+    private void jMenuItemQueEsElCorrimientoAlRojoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemQueEsElCorrimientoAlRojoActionPerformed
+        ImageIcon imageIcon = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/imagenes/redshift.png")));
+        Image image = imageIcon.getImage();
+        Image newimg = image.getScaledInstance(150, 150, Image.SCALE_SMOOTH); // scale it the smooth way  
+        imageIcon = new ImageIcon(newimg);    
+        
+        JOptionPane.showMessageDialog(this, "En física y astronomía, el corrimiento al rojo, acer-\n"
+                + "camiento hacia el rojo o desplazamiento hacia el rojo\n"
+                + "(en inglés: redshift) es un fenómeno que ocurre cuando\n"
+                + "la radiación electromagnética que se emite o refleja des-\n"
+                + "de un objeto, normalmente la luz visible, aparece despla-\n"
+                + "zada hacia el rojo al final del espectro electromagnético.\n"
+                + "De manera más general, el corrimiento al rojo es definido\n"
+                + "como un incremento en la longitud de onda de radiación elec-\n"
+                + "tromagnética recibida por un detector comparado con la lon-\n"
+                + "gitud de onda emitida por la fuente. ", "¿Qué es el corrimiento al rojo?", JOptionPane.INFORMATION_MESSAGE, imageIcon);
+    
+    }//GEN-LAST:event_jMenuItemQueEsElCorrimientoAlRojoActionPerformed
+
+    private void jMenuItemQueEsLaAscensionRectaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemQueEsLaAscensionRectaActionPerformed
+        ImageIcon imageIcon = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/imagenes/coordenadas.png")));
+        Image image = imageIcon.getImage();
+        Image newimg = image.getScaledInstance(150, 150, Image.SCALE_SMOOTH); // scale it the smooth way  
+        imageIcon = new ImageIcon(newimg);    
+        
+        JOptionPane.showMessageDialog(this, "En astronomía, la ascensión recta es una de las coor-\n"
+                + "denadas astronómicas que se utilizan para localizar los as-\n"
+                + "tros sobre la esfera celeste, equivalente a la longitud te-\n"
+                + "rrestre (coordenada geográfica). La ascensión recta se mide\n"
+                + "a partir del punto Aries en horas (una hora igual a 15 gra-\n"
+                + "dos), minutos y segundos hacia el Este a lo largo del ecua-\n"
+                + "dor celeste. A la circunferencia completa (360º) le correspon-\n"
+                + "den 24 horas. El punto Aries (o punto Vernal) está en la posi-\n"
+                + "ción del Sol en el equinoccio de primavera o Equinoccio vernal.\n"
+                + "El símbolo para la ascensión recta es α.", "¿Qué es la ascensión recta?", JOptionPane.INFORMATION_MESSAGE, imageIcon);
+    
+    }//GEN-LAST:event_jMenuItemQueEsLaAscensionRectaActionPerformed
+
+    private void jMenuItemQueEsLaDeclinacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemQueEsLaDeclinacionActionPerformed
+        ImageIcon imageIcon = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/imagenes/declinación.png")));
+        Image image = imageIcon.getImage();
+        Image newimg = image.getScaledInstance(150, 150, Image.SCALE_SMOOTH); // scale it the smooth way  
+        imageIcon = new ImageIcon(newimg);    
+        
+        JOptionPane.showMessageDialog(this, "En astronomía, la declinación (abreviada como\n"
+                + "dec. y cuyo símbolo es δ) es uno de los dos án-\n"
+                + "gulos que ubican un punto en la esfera celeste\n"
+                + "en el sistema de coordenadas ecuatoriales, el otro\n"
+                + "es el ascensión recta. El ángulo de declinación es\n"
+                + "el ángulo que forma un astro con el ecuador celeste.\n"
+                + "La declinación se mide en grados sexagesimales y es\n"
+                + "positiva si está al norte del ecuador celeste y nega-\n"
+                + "tiva si está al sur. La declinación es comparable a la-\n"
+                + "latitud geográfica (que se mide sobre el ecuador terres-\n"
+                + "tre).", "¿Qué es la declinación?", JOptionPane.INFORMATION_MESSAGE, imageIcon);
+    
+    }//GEN-LAST:event_jMenuItemQueEsLaDeclinacionActionPerformed
+
+    private void jMenuItemComoUsarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemComoUsarActionPerformed
+        ComoUsar como_usar=new ComoUsar(this, true);
+        como_usar.setLocationRelativeTo(null);
+        como_usar.setVisible(true);
+    }//GEN-LAST:event_jMenuItemComoUsarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -282,21 +488,24 @@ public class Principal extends javax.swing.JFrame {
 
     private IntroducirDatos intD;
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabelFondo;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenuAyuda;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JLabel jMenuCerrar;
     private javax.swing.JMenu jMenuClasificar;
     private javax.swing.JMenu jMenuInformacion;
-    private javax.swing.JMenuItem jMenuItem;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItemAcercaDe;
     private javax.swing.JMenuItem jMenuItemCargarDatosDesdeArchivo;
+    private javax.swing.JMenuItem jMenuItemComoSeObtuvoElModelo;
     private javax.swing.JMenuItem jMenuItemComoUsar;
     private javax.swing.JMenuItem jMenuItemIntroducirDatos;
+    private javax.swing.JMenuItem jMenuItemQueEsElCorrimientoAlRojo;
+    private javax.swing.JMenuItem jMenuItemQueEsLaAscensionRecta;
+    private javax.swing.JMenuItem jMenuItemQueEsLaDeclinacion;
+    private javax.swing.JMenuItem jMenuItemQueEsUnCuasar;
+    private javax.swing.JMenuItem jMenuItemQueEsUnaEstrella;
+    private javax.swing.JMenuItem jMenuItemQueEsUnaGalaxia;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }

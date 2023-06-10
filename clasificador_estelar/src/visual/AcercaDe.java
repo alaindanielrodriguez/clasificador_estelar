@@ -20,6 +20,7 @@ public class AcercaDe extends javax.swing.JDialog {
      */
     public AcercaDe(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
+        this.setUndecorated(true);
         initComponents();
         
         ImageIcon imageIcon = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/imagenes/pexels-felix-mittermeier-956999.jpg"))); // load the image to a imageIcon
@@ -62,6 +63,7 @@ public class AcercaDe extends javax.swing.JDialog {
         jLaberAcercaDe.setText("Acerca de esta aplicación");
         jPanel1.add(jLaberAcercaDe, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, 220, -1));
 
+        jButtonAceptar.setFont(new java.awt.Font("Junicode", 0, 18)); // NOI18N
         jButtonAceptar.setText("Aceptar");
         jButtonAceptar.setFocusable(false);
         jButtonAceptar.addActionListener(new java.awt.event.ActionListener() {
@@ -69,7 +71,7 @@ public class AcercaDe extends javax.swing.JDialog {
                 jButtonAceptarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, -1, -1));
+        jPanel1.add(jButtonAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 200, -1, -1));
         jPanel1.add(jLabelTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 440, 160));
         jPanel1.add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 477, 250));
 
