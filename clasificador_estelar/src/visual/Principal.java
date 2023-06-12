@@ -79,6 +79,7 @@ public class Principal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setFont(new java.awt.Font("Junicode", 0, 18)); // NOI18N
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/icons8-shooting-stars-48.png")).getImage());
         setUndecorated(true);
         setResizable(false);
 

@@ -25,6 +25,8 @@ public class IntroducirDatos extends javax.swing.JDialog {
     public IntroducirDatos(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         this.parent = parent;
+        this.setUndecorated(true);
+        
         initComponents();
 
         ImageIcon imageIcon = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/imagenes/pexels-felix-mittermeier-956999.jpg"))); // load the image to a imageIcon
@@ -217,6 +219,7 @@ public class IntroducirDatos extends javax.swing.JDialog {
 
         jButtonLimpiar.setFont(new java.awt.Font("Junicode", 0, 18)); // NOI18N
         jButtonLimpiar.setText("Limpiar");
+        jButtonLimpiar.setFocusPainted(false);
         jButtonLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonLimpiarActionPerformed(evt);
@@ -231,6 +234,7 @@ public class IntroducirDatos extends javax.swing.JDialog {
 
         jButtonCancelar.setFont(new java.awt.Font("Junicode", 0, 18)); // NOI18N
         jButtonCancelar.setText("Cancelar");
+        jButtonCancelar.setFocusPainted(false);
         jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCancelarActionPerformed(evt);
@@ -241,6 +245,7 @@ public class IntroducirDatos extends javax.swing.JDialog {
         jButtonAceptar.setFont(new java.awt.Font("Junicode", 0, 18)); // NOI18N
         jButtonAceptar.setText("Aceptar");
         jButtonAceptar.setEnabled(false);
+        jButtonAceptar.setFocusPainted(false);
         jButtonAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonAceptarActionPerformed(evt);

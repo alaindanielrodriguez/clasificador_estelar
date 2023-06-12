@@ -83,6 +83,7 @@ public class Resultado extends javax.swing.JDialog {
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/icons8-shooting-stars-48.png")).getImage());
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -120,6 +121,7 @@ public class Resultado extends javax.swing.JDialog {
 
         jButtonGuardar.setFont(new java.awt.Font("Junicode", 0, 18)); // NOI18N
         jButtonGuardar.setText("Guardar");
+        jButtonGuardar.setFocusPainted(false);
         jButtonGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonGuardarActionPerformed(evt);
@@ -129,6 +131,7 @@ public class Resultado extends javax.swing.JDialog {
 
         jButtonAceptar.setFont(new java.awt.Font("Junicode", 0, 18)); // NOI18N
         jButtonAceptar.setText("Aceptar");
+        jButtonAceptar.setFocusPainted(false);
         jButtonAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonAceptarActionPerformed(evt);

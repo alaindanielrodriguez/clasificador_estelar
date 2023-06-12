@@ -22,7 +22,7 @@ public class PrologProgram {
     }
     
     public String clasificar(){
-        Query consult = new Query("consult('src/clasificador_estelar/programa.pl')");
+        Query consult = new Query("consult('prolog/programa.pl')");
         consult.hasSolution();
         
         Term c_r=Term.textToTerm("corrimiento_rojo("+idObj+", "+corrimiento_rojo+")");
@@ -39,8 +39,7 @@ public class PrologProgram {
         
         Term infrrjo_crcno=Term.textToTerm("filtro_infrarrojo_cercano("+idObj+", "+infrarrojo_cercano+")");
         Query.hasSolution("assert(" + infrrjo_crcno + ")");
-        
-        
+            
         Variable X=new Variable("X");
         Query hallar_clase = new Query("clase", new Term[]{new Atom(idObj), X});
         
